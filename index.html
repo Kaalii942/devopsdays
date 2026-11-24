@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOpsDays Islamabad 2026 – I'm Attending Poster Generator</title>
+  <meta name="description" content="Generate your personalized high-resolution 'I'm Attending' poster for DevOpsDays Islamabad 2026 with custom photo, name, and designation or university.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- App Header with Official Logo -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrap">
+        <a href="#" class="brand-logo-link" title="DevOpsDays Islamabad 2026">
+          <img src="logo.png" alt="DevOpsDays Islamabad 2026 Logo" class="brand-logo-img">
+        </a>
+        <div class="brand-divider"></div>
+        <div class="brand-text">
+          <div class="event-tag">
+            <span class="pulse-dot"></span> DevOpsDays Islamabad 2026
+          </div>
+          <h1 class="app-title">I'm Attending Poster Generator</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="badge-pill">Official Attendee Badge</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Step-by-Step Procedure Navigation -->
+  <nav class="stepper-nav" aria-label="Creation Procedure">
+    <div class="stepper-container">
+      <button type="button" class="step-tab active" id="tabStep1" data-step="1">
+        <span class="step-badge">1</span>
+        <span class="step-text">Upload Picture</span>
+      </button>
+      <div class="step-connector" id="connector1"></div>
+      <button type="button" class="step-tab" id="tabStep2" data-step="2">
+        <span class="step-badge">2</span>
+        <span class="step-text">Enter Details</span>
+      </button>
+      <div class="step-connector" id="connector2"></div>
+      <button type="button" class="step-tab" id="tabStep3" data-step="3">
+        <span class="step-badge">3</span>
+        <span class="step-text">Preview &amp; Download</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Wizard Content Layout -->
+  <main class="app-main">
+    <div class="wizard-container">
+
+      <!-- ====================================================================
+           STEP 1: UPLOAD PICTURE FIRST (Auto-fits frame, no adjusters needed)
+           ==================================================================== -->
+      <section class="wizard-panel active" id="stepPanel1" aria-label="Step 1: Upload Photograph">
+        <div class="panel-card">
+          <div class="panel-header">
+            <span class="step-tag">Step 1 of 3</span>
+            <h2 class="panel-title">Upload Your Photograph</h2>
+            <p class="panel-subtitle">Upload your picture first. It will be automatically centered and fitted into the poster frame without needing any manual adjustments.</p>
+          </div>
+
+          <!-- Drag & Drop Upload Dropzone -->
+          <div class="upload-dropzone" id="uploadDropzone">
+            <input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp,image/jfif,image/jpg" class="file-input-hidden">
+            <div class="dropzone-content">
+              <div class="upload-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <div class="upload-text">
+                <p class="upload-prompt"><strong>Click to upload photograph</strong> or drag &amp; drop</p>
+                <p class="upload-sub">JPG, PNG, WEBP, or JFIF &bull; Automatically fits frame</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo uploaded status bar -->
+          <div class="photo-status-bar" id="photoStatusBar" style="display: none;">
+            <div class="photo-info">
+              <span class="photo-check">&check;</span>
+              <span class="photo-name" id="photoFileName">photo.jpg</span>
+              <span class="photo-fit-tag">Auto-Fitted</span>
+            </div>
+            <div class="photo-actions">
+              <button type="button" id="btnChangePhoto" class="btn-text">Change Picture</button>
+            </div>
+          </div>
+
+          <!-- Quick Sample Photo Button -->
+          <div class="demo-photo-row">
+            <button type="button" id="btnUseDemoPhoto" class="btn-demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>Use Sample Photograph</span>
+            </button>
+          </div>
+
+          <!-- Step 1 Actions -->
+          <div class="panel-footer-actions">
+            <button type="button" id="btnProceedToDetails" class="btn btn-primary btn-block">
+              <span>Next: Enter Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           STEP 2: ENTER DETAILS (Full Name + Designation or University Name)
+           With ONLY + and - font adjusters
+           ==================================================================== -->
+      <section class="wizard-panel" id="stepPanel2" aria-label="Step 2: Enter Details" style="display: none;">
+        <div class="panel-card">
+          <div class="panel-header">
+            <span class="step-tag">Step 2 of 3</span>
+            <h2 class="panel-title">Enter Your Name &amp; Designation or University</h2>
+            <p class="panel-subtitle">Personalize your poster. Use the simple + and &minus; buttons to adjust font sizes.</p>
+          </div>
+
+          <div class="form-fields-wrap">
+            <!-- Full Name Input + Font Adjuster (+ and - buttons only) -->
+            <div class="form-group">
+              <div class="field-header">
+                <label for="nameInput" class="field-label">Full Name</label>
+                <div class="font-stepper" title="Adjust Name Font Size">
+                  <span class="stepper-label">Font Size:</span>
+                  <button type="button" id="btnNameMinus" class="step-btn" aria-label="Decrease Name Font Size">&minus;</button>
+                  <span id="nameSizeValue" class="size-badge">76px</span>
+                  <button type="button" id="btnNamePlus" class="step-btn" aria-label="Increase Name Font Size">&#43;</button>
+                </div>
+              </div>
+              <input type="text" id="nameInput" class="custom-input" placeholder="e.g. Syed Muhammad Ali" maxlength="40" autocomplete="name" spellcheck="false">
+              <div class="field-hint">Rendered with vibrant purple/pink neon glow matching conference typography.</div>
+            </div>
+
+            <!-- Designation or University Name Input + Font Adjuster (+ and - buttons only) -->
+            <div class="form-group">
+              <div class="field-header">
+                <label for="desigInput" class="field-label">Designation or University Name</label>
+                <div class="font-stepper" title="Adjust Designation / University Font Size">
+                  <span class="stepper-label">Font Size:</span>
+                  <button type="button" id="btnDesigMinus" class="step-btn" aria-label="Decrease Designation Font Size">&minus;</button>
+                  <span id="desigSizeValue" class="size-badge">42px</span>
+                  <button type="button" id="btnDesigPlus" class="step-btn" aria-label="Increase Designation Font Size">&#43;</button>
+                </div>
+              </div>
+              <textarea id="desigInput" class="custom-textarea" rows="2" placeholder="e.g. Principal DevOps Architect | Cloud Hero&#10;or Department of Computer Science, NUST Islamabad" maxlength="80" spellcheck="false"></textarea>
+              <div class="field-hint">Supports designation, role, company, or university name (up to 2 lines). Auto-wraps and scales.</div>
+            </div>
+          </div>
+
+          <!-- Step 2 Navigation Actions -->
+          <div class="panel-nav-row">
+            <button type="button" id="btnBackToPhoto" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow-icon">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Photo</span>
+            </button>
+            <button type="button" id="btnProceedToPreview" class="btn btn-primary">
+              <span>Preview &amp; Download Poster</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           STEP 3: PREVIEW & DOWNLOAD POSTER
+           ==================================================================== -->
+      <section class="wizard-panel" id="stepPanel3" aria-label="Step 3: Preview and Download" style="display: none;">
+        <div class="panel-card preview-card-wide">
+          <div class="panel-header text-center">
+            <span class="step-tag">Step 3 of 3</span>
+            <h2 class="panel-title">Your DevOpsDays Islamabad 2026 Poster</h2>
+            <p class="panel-subtitle">Here is your customized high-resolution poster. Download it now to share across social media!</p>
+          </div>
+
+          <!-- Live Canvas Poster Viewport -->
+          <div class="canvas-viewport" id="canvasViewport">
+            <div class="canvas-wrapper" id="canvasWrapper">
+              <canvas id="posterCanvas" width="1842" height="2304"></canvas>
+            </div>
+          </div>
+
+          <!-- Quick font size fine-tuners directly on the preview screen -->
+          <div class="preview-quick-adjusters">
+            <div class="quick-adjust-group">
+              <span class="quick-label">Name Font:</span>
+              <button type="button" id="btnQuickNameMinus" class="step-btn" title="Decrease Name Font Size">&minus;</button>
+              <span id="quickNameSize" class="size-badge">76px</span>
+              <button type="button" id="btnQuickNamePlus" class="step-btn" title="Increase Name Font Size">&#43;</button>
+            </div>
+            <div class="quick-adjust-divider"></div>
+            <div class="quick-adjust-group">
+              <span class="quick-label">Designation / Uni Font:</span>
+              <button type="button" id="btnQuickDesigMinus" class="step-btn" title="Decrease Designation Font Size">&minus;</button>
+              <span id="quickDesigSize" class="size-badge">42px</span>
+              <button type="button" id="btnQuickDesigPlus" class="step-btn" title="Increase Designation Font Size">&#43;</button>
+            </div>
+          </div>
+
+          <!-- Download PNG and Share Buttons -->
+          <div class="preview-actions-bar">
+            <button type="button" id="btnDownload" class="btn btn-primary btn-large" aria-label="Download High-Res PNG">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="btn-icon">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>Download PNG (High-Res 1842&times;2304)</span>
+            </button>
+            <button type="button" id="btnLinkedInShare" class="btn btn-linkedin btn-large" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37z"/>
+              </svg>
+              <span>Share to LinkedIn</span>
+            </button>
+          </div>
+
+          <!-- Secondary Navigation Links -->
+          <div class="preview-footer-links">
+            <button type="button" id="btnEditDetails" class="text-link-btn">
+              &larr; Edit Name &amp; Details
+            </button>
+            <span class="dot-sep">&bull;</span>
+            <button type="button" id="btnChangePhotoFromPreview" class="text-link-btn">
+              Change Photograph
+            </button>
+            <span class="dot-sep">&bull;</span>
+            <button type="button" id="btnResetAll" class="text-link-btn btn-danger-link">
+              Start Over / Reset
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- LinkedIn Sharing Modal / Fallback Dialog -->
+  <div class="modal-backdrop" id="linkedInModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="linkedin-badge-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37z"/>
+            </svg>
+          </div>
+          <h3 class="modal-title" id="modalTitle">Share Your Badge on LinkedIn</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnCloseModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Your personalized high-resolution poster is ready! Share your attendance with your professional network:
+        </p>
+
+        <!-- Steps list -->
+        <div class="share-steps">
+          <div class="step-item">
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <strong>Download your poster image:</strong>
+              <button type="button" id="btnModalDownload" class="btn btn-sm btn-primary">Download Poster PNG</button>
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <strong>Copy ready-made post caption:</strong>
+              <div class="caption-box">
+                <textarea id="captionText" readonly class="caption-textarea"></textarea>
+                <button type="button" id="btnCopyCaption" class="btn-copy">
+                  <span id="copyTextState">Copy Caption</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-number">3</span>
+            <div class="step-content">
+              <strong>Open LinkedIn &amp; create your post:</strong>
+              <a href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener noreferrer" id="btnOpenLinkedInFeed" class="btn btn-sm btn-linkedin">
+                <span>Open LinkedIn Feed</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="link-external-icon">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnDoneModal">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Application Script -->
+  <script src="script.js"></script>
+</body>
+</html>
